@@ -1,0 +1,22 @@
+<div *ngIf="!currentCategory">Loading...</div>
+
+<table *ngIf="currentCategory">
+    <thead>
+        <tr>
+            <th>#Id</th>
+            <th>Name</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>{{currentCategory.pcId}}</td>
+            <td>{{currentCategory.name}}</td>
+        </tr>
+    </tbody>
+
+</table>
+
+<app-list-of-products (ProductSelected)="ShowSelectedProduct($event)"
+    [Products]="currentCategory?.products"></app-list-of-products>
